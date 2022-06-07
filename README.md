@@ -1,2 +1,2 @@
-# hello-world-folder
-Hello world folder structure
+# Ficha de honor GAME
+Juego 2d de estrategia
