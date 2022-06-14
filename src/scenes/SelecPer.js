@@ -15,10 +15,14 @@ export class SelecPer extends Phaser.Scene {
     }*/
     
     create() {
+
+
+      this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "selecPersonajes")
+      .setScale(1);
        //Boton para comenzar a jugar al combate
       const botonPlayC = new Button(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY/2, 'Empezar', this, () => {
         // Instrucción para pasar a la escena PlayCombat
-        this.scene.start("PlayCombat");
+        this.scene.start("selecSamurai");
     });
-    }
+  }
 }

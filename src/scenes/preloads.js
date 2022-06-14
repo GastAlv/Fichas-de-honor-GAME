@@ -15,6 +15,14 @@ export class Preloads extends Phaser.Scene {
       "mainmenu_bg",
       "public/assets/images/main_menu_background.png"
     );
+    this.load.image("mainMenu", "public/assets/images/menu.png");
+    this.load.image("credits", "public/assets/images/creditos.png");
+    this.load.image("selecPersonajes", "public/assets/images/seleccion_personajes.png");
+    this.load.image("opciones", "public/assets/images/opciones.png");
+    this.load.image("samuraisSelec", "public/assets/images/seleccion_luchadores.png");
+    this.load.image("vikingSelec", "public/assets/images/seleccion-vikinga.png");
+    this.load.image("combatZoomOut", "public/assets/images/comZoomOut.png");  
+    this.load.image("combatZoom", "public/assets/images/combatZoom.jpg");  
   }
 
   create() {

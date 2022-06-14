@@ -10,7 +10,7 @@ export class MainMenu extends Phaser.Scene {
 
   create() {
     // Fondo del menú principal
-    this.add
+    /*this.add
       .image(
         this.cameras.main.centerX,
         this.cameras.main.centerY,
@@ -23,16 +23,18 @@ export class MainMenu extends Phaser.Scene {
       this.cameras.main.centerX,
       this.cameras.main.centerY / 1.5,
       "phaser_logo"
-    );
+    );*/
+    this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "mainMenu")
+    .setScale(1);
 
     // Boton para comenzar a jugar
-        const botonJgar = new Button(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY/5, 'Jugar', this, () => {
+        const botonJgar = new Button(this.cameras.main.centerX + 100, this.cameras.main.centerY- 160, 'Comenzar', this, () => {
             // Instrucción para pasar a la escena Play
             this.scene.start("SelecPer");
         });
 
         // Boton para comenzar a jugar
-        const botonCred = new Button(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY/2, 'Creditos', this, () => {
+        const botonCred = new Button(this.cameras.main.centerX + 100, this.cameras.main.centerY -70, 'Creditos', this, () => {
           // Instrucción para pasar a la escena Play
           this.scene.start("Credits");
       });
@@ -41,13 +43,13 @@ export class MainMenu extends Phaser.Scene {
       const botonSlir = new Button(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY/3, 'Salir', this, () => {
         // Instrucción para pasar a la escena Play
         this.scene.start("");
-    });
+    });*/
 
     // Boton para comenzar a jugar
-    const boton = new Button(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY/3, 'Level2', this, () => {
+    const boton = new Button(this.cameras.main.centerX + 100, this.cameras.main.centerY+20, 'Opciones', this, () => {
       // Instrucción para pasar a la escena Play
-      this.scene.start("Level2");
-  });*/
+      this.scene.start("Opciones");
+  });
   }
   update(){
     
