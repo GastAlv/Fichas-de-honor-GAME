@@ -12,8 +12,8 @@ import {PlayZoom} from "../scenes/PlayZoom.js"
 
 var config = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  width: 1280,
+  height: 720,
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
@@ -22,8 +22,8 @@ var config = {
       height: 600,
     },
     max: {
-      width: 1600,
-      height: 1200,
+      width: 1280,
+      height: 720,
     },
   },
   physics: {
