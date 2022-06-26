@@ -11,9 +11,10 @@ class Button {
                 fontFamily: "asian"
             })
             .setInteractive({ useHandCursor: true })
+            //.on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() =>Borrar);
             .on('pointerdown', () => callback())
             .on('pointerover', () => button.setStyle({ fill: '#B9B9B9' }))
-            .on('pointerout', () => button.setStyle({ fill: '#000' }));
+            .on('pointerout', () => button.setStyle({ fill: '#000' }))
     }
 }
 function loadFont(name, url) {
@@ -24,6 +25,16 @@ function loadFont(name, url) {
         return error;
     });
 }
+
+function Borrar(bAtaque){
+    bAtaque.visible = false;
+    /*bObEstats.visible = false;
+    bObjeto.visible = false;*/
+
+    if(bAtaque.visible === true){
+    bAtaque.visible = false;;
+    };
+};
 
 loadFont("asian", "../public/assets/fuentes/OPTIAsian.otf");
 
