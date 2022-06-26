@@ -1,12 +1,12 @@
-import Button from "../js/button.js";
-export class Creditos extends Phaser.Scene {
+
+export class Ayuda extends Phaser.Scene {
     constructor() {
       // Se asigna una key para despues poder llamar a la escena
-      super("Creditos");
+      super("Ayuda");
     }
   
     preload() {
-      this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "creditos")
+      this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "ayuda01")
     .setScale(1);
     }
   
@@ -15,6 +15,7 @@ export class Creditos extends Phaser.Scene {
       //this.scene.start("MainMenu");
 
       //volver al menu
+
         
       let volverM = this.add.image(70, 60, 'volverM')
         .setScale(.64)

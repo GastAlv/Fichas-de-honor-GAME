@@ -15,14 +15,18 @@ export class Preloads extends Phaser.Scene {
       "mainmenu_bg",
       "public/assets/images/main_menu_background.png"
     );
-    this.load.image("mainMenu", "public/assets/images/menu.png");
-    this.load.image("credits", "public/assets/images/creditos.png");
-    this.load.image("selecPersonajes", "public/assets/images/seleccion_personajes.png");
+    this.load.image("mainMenu", "public/assets/images/menu1.png");
+    this.load.image("creditos", "public/assets/images/creditos.png");
+    this.load.image("selecPersonajes", "public/assets/images/selecPer.png");
     this.load.image("opciones", "public/assets/images/opciones.png");
     this.load.image("samuraisSelec", "public/assets/images/seleccion_luchadores.png");
     this.load.image("vikingSelec", "public/assets/images/seleccion-vikinga.png");
     this.load.image("combatZoomOut", "public/assets/images/comZoomOut.png");  
     this.load.image("combatZoom", "public/assets/images/combatZoom.png");
+
+    this.load.image("ayuda01", "public/assets/images/ayuda01.png")
+
+    this.load.image("elegirFacc", "public/assets/images/elegirFacc.png")
 
     //personajes
     this.load.image("sCaballo", "public/assets/images/personajes/caballo.png");
@@ -34,7 +38,12 @@ export class Preloads extends Phaser.Scene {
     this.load.image("interface", "public/assets/images/escenario_central.png");
 
     //botones
-    //this.load.image("botonV", "public/assets/images/bottonV.png")
+    this.load.image("boton", "public/assets/images/bottonV.png")
+    this.load.image('botonM', "public/assets/images/botonTrans.png")
+    this.load.image('confiM', "public/assets/images/opcionesM.png")
+    this.load.image('volverM', "public/assets/images/volverM.png")
+    this.load.image("botonV", "public/assets/images/interfaz.png");
+
 
     //amnimaciones
     this.load.spritesheet('peon', "public/assets/images/peon.png", {
@@ -42,10 +51,17 @@ export class Preloads extends Phaser.Scene {
       frameHeight: 1080,
     });
 
+    //PERSONAJE SAMURAIS
+    this.load.image("sPerS01", "public/assets/images/selecPerS01.png")
+    this.load.image("zoomPerS01", "public/assets/images/zoomPerS01.png")
+    //PERSONAJE VIKINGOS
+    this.load.image("sPerV02", "public/assets/images/selecPerV02.png")
+    
+
   }
 
   create() {
     // Pasa directamente a la escena del menú principal
-    this.scene.start("PlayZoom");
+    this.scene.start("MainMenu");
   }
 }

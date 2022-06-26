@@ -5,10 +5,12 @@ export class PlayZoom extends Phaser.Scene {
     }
 
     preload(){
-        this.load.image("botonV", "public/assets/images/interfaz.png");
         //this.load.image('B', "public/assets/images/boton2.png");
         this.load.image('b2', "public/assets/images/boton2.png");
         this.load.image('B', "public/assets/images/bBack.png");
+        //vida
+        this.load.image("vida", "public/assets/images/vida.png")
+        this.load.image("vidaBack", "public/assets/images/vidaBack.png")
 
     }
     create(){
@@ -115,7 +117,7 @@ export class PlayZoom extends Phaser.Scene {
             backBotonAt3.visible = false;
             backBoton1.visible = true;
             backBoton2.visible = false;
-            peonS.play({key: 'peonAt', repeat: 0})
+            peonS.play({key: 'peonAt', repeat: 0});
 
         })
         .on('pointerover', () => ataque1.setStyle({ fill: '#323D26' }))
@@ -251,8 +253,15 @@ export class PlayZoom extends Phaser.Scene {
             });
         }
      }*/
-        
 
+
+
+
+     //vida
+     let vidaBj1 = this.add.image(555, 572, 'vidaBack')
+     let vidaj1 = this.add.image(555, 572, 'vida')
+        
+     //Animaciones
      const peonAnim = this.anims.create({
         key: "peonAt",
         frames: this.anims.generateFrameNumbers('peon', {start: 0, end: 5}),

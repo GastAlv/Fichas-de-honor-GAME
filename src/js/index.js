@@ -1,13 +1,15 @@
 import { Preloads } from "../scenes/preloads.js";
 import { MainMenu } from "../scenes/mainmenu.js";
 import {SelecPer} from "../scenes/SelecPer.js"
-import {Credits} from "../scenes/Credits.js"
+import {Creditos} from "../scenes/Credits.js"
 import {PlayCombat} from "../scenes/PlayCombat.js"
 import {Resultados} from "../scenes/Resultados.js"
 import {Opciones} from "../scenes/opciones.js"
 import {selecSamurai} from "../scenes/samuraiSel.js"
 import {selecViking} from "../scenes/vikingSel.js"
 import {PlayZoom} from "../scenes/PlayZoom.js"
+import {Ayuda} from "../scenes/ayuda.js"
+import {SelecFacc} from "../scenes/selecFaccion.js"
 
 
 var config = {
@@ -35,7 +37,7 @@ var config = {
   },
   // Listado de todas las escenas del juego, en orden
   // La primera escena es con la cual empieza el juego
-  scene: [Preloads, MainMenu, SelecPer, Credits, Opciones, selecSamurai, selecViking, PlayCombat, PlayZoom, Resultados]
+  scene: [Preloads, MainMenu, SelecPer, Creditos, Opciones, Ayuda, SelecFacc, selecSamurai, selecViking, PlayCombat, PlayZoom, Resultados]
 };
 
 var game = new Phaser.Game(config);
