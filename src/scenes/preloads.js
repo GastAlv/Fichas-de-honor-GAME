@@ -36,6 +36,12 @@ export class Preloads extends Phaser.Scene {
     //botones
     //this.load.image("botonV", "public/assets/images/bottonV.png")
 
+    //amnimaciones
+    this.load.spritesheet('peon', "public/assets/images/peon.png", {
+      frameWidth: 1920,
+      frameHeight: 1080,
+    });
+
   }
 
   create() {

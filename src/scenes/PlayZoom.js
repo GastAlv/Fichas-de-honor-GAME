@@ -1,6 +1,6 @@
 import Button from "../js/button.js";
 export class PlayZoom extends Phaser.Scene {
-    constructor(){
+    constructor(){+
         super("PlayZoom")
     }
 
@@ -25,13 +25,11 @@ export class PlayZoom extends Phaser.Scene {
         //escena interface (w:1280 h:230)
         this.image = this.add.image(640, 245, 'interface');
         this.add.image(this.cameras.main.centerX, 570, 'botonV')
-        this.A = this.add.image(180, 541, 'B')
-        .setInteractive({ useHandCursor: true })
-        .on('pointerover', () => this.A.setStyle({ fill: '#323D26' }))
-        .on('pointerout', () => this.A.setStyle({ fill: '#7D8E69' }));
         
         
-        this.At = this.add.text(120, 520, 'ATAQUES')
+        //botonAtaques
+        this.backBoton = this.add.image(180, 541, 'B');
+        this.botonAt = this.add.text(120, 520, 'ATAQUES')
         .setStyle({
             fontFamily: "asian",
             fontSize: '50px',
@@ -39,11 +37,138 @@ export class PlayZoom extends Phaser.Scene {
         })
         .setInteractive()
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() => {
-            this.A.visible = false;
-            this.At.visible = false;
+            //this.backBoton.visible = false;
+            this.botonAt.visible = false;
+            this.botonOb.visible = false;
+            ataque1.visible = true;
+            ataque2.visible = true;
+            ataque3.visible = true;
+            backBotonAt3.visible = true;
+            backBoton1.visible = false;
+            backBoton2.visible = true;
+
         })
-        .on('pointerover', () => this.At.setStyle({ fill: '#323D26' }))
-        .on('pointerout', () => this.At.setStyle({ fill: '#7D8E69' }));
+        .on('pointerover', () => this.botonAt.setStyle({ fill: '#323D26' }))
+        .on('pointerout', () => this.botonAt.setStyle({ fill: '#7D8E69' }));
+        
+
+        //botonObjetos
+        this.backBoton = this.add.image(180, 620, 'B');
+        this.botonOb = this.add.text(120, 600, 'OBJETOS')
+        .setStyle({
+            fontFamily: "asian",
+            fontSize: '50px',
+            fill: '#7D8E69'
+        })
+        .setInteractive()
+        .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() => {
+            //this.backBoton.visible = false;
+            this.botonAt.visible = false;
+            //this.A1.visible = true;
+            //A1a.visible = false;
+            botonOb.visible = true;
+        })
+        .on('pointerover', () => this.botonOb.setStyle({ fill: '#323D26' }))
+        .on('pointerout', () => this.botonOb.setStyle({ fill: '#7D8E69' }));
+        
+        
+        //botonEstadisticas
+        let backBoton1 = this.add.image(405, 580, 'B')
+        .setScale(1, 2+0.08);
+        let backBoton2 = this.add.image(405, 542, 'B')
+        backBoton2.visible = false;
+
+        this.botonEst = this.add.text(320, 520, 'ESTADISTICAS')
+        .setStyle({
+            fontFamily: "asian",
+            fontSize: '50px',
+            fill: '#7D8E69'
+        })
+        .setInteractive()
+        .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() => {
+            //this.backBoton.visible = false;
+            this.botonEst.visible = false;
+            //this.A1.visible = true;
+            //A1a.visible = false;
+            botonOb.visible = true;
+        })
+        .on('pointerover', () => this.botonEst.setStyle({ fill: '#323D26' }))
+        .on('pointerout', () => this.botonEst.setStyle({ fill: '#7D8E69' }));
+
+
+
+          //textoAtaque1
+        let ataque1 = this.add.text(120, 520, 'ATAQUE 1')
+        .setStyle({
+            fontFamily: "asian",
+            fontSize: '50px',
+            fill: '#7D8E69'
+        })
+        .setInteractive()
+        .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() => {
+            //this.backBoton.visible = false;
+            this.botonAt.visible = true;
+            this.botonOb.visible = true;
+            ataque1.visible = false;
+            ataque2.visible = false;
+            ataque3.visible = false;
+            backBotonAt3.visible = false;
+            backBoton1.visible = true;
+            backBoton2.visible = false;
+            peonS.play({key: 'peonAt', repeat: 0})
+
+        })
+        .on('pointerover', () => ataque1.setStyle({ fill: '#323D26' }))
+        .on('pointerout', () => ataque1.setStyle({ fill: '#7D8E69' }));
+        ataque1.visible = false;
+
+        //ataque2
+        let ataque2 = this.add.text(120, 600, 'ATAQUE 2')
+        .setStyle({
+            fontFamily: "asian",
+            fontSize: '50px',
+            fill: '#7D8E69'
+        })
+        .setInteractive()
+        .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() => {
+            //this.backBoton.visible = false;
+            this.botonAt.visible = true;
+            this.botonOb.visible = true;
+            ataque1.visible = false;
+            ataque2.visible = false;
+            ataque3.visible = false;
+            backBotonAt3.visible = false;
+            backBoton1.visible = true;
+            backBoton2.visible = false;
+        })
+        .on('pointerover', () => ataque2.setStyle({ fill: '#323D26' }))
+        .on('pointerout', () => ataque2.setStyle({ fill: '#7D8E69' }));
+        ataque2.visible = false;
+
+        //ataque3
+        let backBotonAt3 = this.add.image(405, 620, 'B')
+        backBotonAt3.visible = false;
+        let ataque3 = this.add.text(320, 600, 'ATAQUE 3')
+        .setStyle({
+            fontFamily: "asian",
+            fontSize: '50px',
+            fill: '#7D8E69'
+        })
+        .setInteractive()
+        .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() => {
+            //this.backBoton.visible = false;
+            this.botonAt.visible = true;
+            this.botonOb.visible = true;
+            ataque1.visible =false;
+            ataque2.visible = false;
+            ataque3.visible = false;
+            backBotonAt3.visible = false;
+            backBoton1.visible = true;
+            backBoton2.visible = false;
+        })
+        .on('pointerover', () => ataque3.setStyle({ fill: '#323D26' }))
+        .on('pointerout', () => ataque3.setStyle({ fill: '#7D8E69' }));
+        ataque3.visible = false;
 
         function loadFont(name, url) {
             var newFont = new FontFace(name, `url(${url})`);
@@ -53,6 +178,7 @@ export class PlayZoom extends Phaser.Scene {
                 return error;
             });
         }
+
 
 
         loadFont("asian", "public/assets/fuentes/OPTIAsian.otf");
@@ -126,6 +252,16 @@ export class PlayZoom extends Phaser.Scene {
         }
      }*/
         
+
+     const peonAnim = this.anims.create({
+        key: "peonAt",
+        frames: this.anims.generateFrameNumbers('peon', {start: 0, end: 5}),
+        frameRate: 10
+     })
+     const peonS = this.add.sprite(750, 270, 'peon').setScale(.2)
+     //peonS.play({key: 'peonAt', repeat: -1})
+
+
         
 
         
@@ -133,7 +269,7 @@ export class PlayZoom extends Phaser.Scene {
 
     }
 
-Borrar(){
+/*Borrar(){
     bAtaque.visible = false;
     bObEstats.visible = false;
     bObjeto.visible = false;
@@ -141,9 +277,10 @@ Borrar(){
     if(bAtaque.visible === true){
     bAtaque.visible = false;;
     };
-};
+};*/
 
 
-    update(){}
+    update(){
+    }
 
 }
