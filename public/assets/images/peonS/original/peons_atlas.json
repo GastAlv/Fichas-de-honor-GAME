@@ -1,0 +1,112 @@
+{
+    "frames": [
+        {
+            "filename": "peons01",
+            "frame": {
+                "w": 1280,
+                "h": 720,
+                "x": 0,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "peons02",
+            "frame": {
+                "w": 1280,
+                "h": 720,
+                "x": 1280,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "peons03",
+            "frame": {
+                "w": 1280,
+                "h": 720,
+                "x": 2560,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "peons04",
+            "frame": {
+                "w": 1280,
+                "h": 720,
+                "x": 3840,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "peons05",
+            "frame": {
+                "w": 1280,
+                "h": 720,
+                "x": 5120,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "peons06",
+            "frame": {
+                "w": 1280,
+                "h": 720,
+                "x": 6400,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "peons07",
+            "frame": {
+                "w": 1280,
+                "h": 720,
+                "x": 7680,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "peons08",
+            "frame": {
+                "w": 1280,
+                "h": 720,
+                "x": 8960,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

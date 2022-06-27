@@ -1,8 +1,14 @@
 import Button from "../js/button.js";
+//import HealthBar from "../js/barraVida.js";
+//import barraV from "../js/barraVida.js";
+//import barraVida from "../js/barraVida.js";
+
 export class PlayZoom extends Phaser.Scene {
+    
     constructor(){+
         super("PlayZoom")
     }
+    
 
     preload(){
         //this.load.image('B', "public/assets/images/boton2.png");
@@ -12,19 +18,15 @@ export class PlayZoom extends Phaser.Scene {
         this.load.image("vida", "public/assets/images/vida.png")
         this.load.image("vidaBack", "public/assets/images/vidaBack.png")
 
+
+
+        console.log('MainScene');
+        this.restarVidas = 50;
+        //this.scene.launch('UI');
+
     }
     create(){
 
-        //this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "combatZoom")
-        //.setScale()
-
-        //personaje
-        //this.add.sprite(310, 310, 'sCaballo').setScale(.37);
-
-        //escena canvas (w:1280 h:490)
-        //this.image = this.add.image(640, 150, 'canva');
-
-        //escena interface (w:1280 h:230)
         this.image = this.add.image(640, 245, 'interface');
         this.add.image(this.cameras.main.centerX, 570, 'botonV')
         
@@ -99,7 +101,7 @@ export class PlayZoom extends Phaser.Scene {
 
 
 
-          //textoAtaque1
+          //texto Ataque1
         let ataque1 = this.add.text(120, 520, 'ATAQUE 1')
         .setStyle({
             fontFamily: "asian",
@@ -117,8 +119,16 @@ export class PlayZoom extends Phaser.Scene {
             backBotonAt3.visible = false;
             backBoton1.visible = true;
             backBoton2.visible = false;
-            peonS.play({key: 'peonAt', repeat: 0});
-
+            peonV.play({key: 'peonVA1', repeat: 0});
+            //this.setValue(healthBar, 10)
+            //this.recibirDaño(healthBar, 20)
+            if ((parseInt(peonV.getData('lifePeonV')) - this.restarVidas) >= 0) {
+                peonV.setData('lifePeonV', peonV.getData('lifePeonV') - this.restarVidas);
+                //peonV.setTint(0xFF0000)
+                this.daño(peonV)
+                console.log(peonV.getData('lifePeonV'))
+            }
+            this.registry.events.emit('lifePeonV', this.image.getData('lifePeonV'));
         })
         .on('pointerover', () => ataque1.setStyle({ fill: '#323D26' }))
         .on('pointerout', () => ataque1.setStyle({ fill: '#7D8E69' }));
@@ -142,6 +152,7 @@ export class PlayZoom extends Phaser.Scene {
             backBotonAt3.visible = false;
             backBoton1.visible = true;
             backBoton2.visible = false;
+            this.setValue(healthBar, 120)
         })
         .on('pointerover', () => ataque2.setStyle({ fill: '#323D26' }))
         .on('pointerout', () => ataque2.setStyle({ fill: '#7D8E69' }));
@@ -186,110 +197,63 @@ export class PlayZoom extends Phaser.Scene {
         loadFont("asian", "public/assets/fuentes/OPTIAsian.otf");
         
 
-
-        /*{
-        //const button2 = this.add.image(this.cameras.main.centerX, 570, 'botonV')
-        .setInteractive()
-        .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() => {
-            console.log("yata")
-        })
-        .setScale();
-
-        //this.button2.visible = false;
-        
-        
-        
-        MenuPersonaje1{
-            //Boton para seguir a resultados
-      const botonPlayC = new Button(this.cameras.main.centerX, this.cameras.main.centerY + 250, 'Seguir', this, () => {
-        // Instrucción para pasar a la escena PlayCombat
-        this.scene.start("Resultados");
-        });
-
-        const bAtaque = new Button(150, 541, 'ATACAR', this, () => {
-            //this.bAtaque.setVisible(false)
-                    // Instrucción para pasar a la escena PlayCombat
-                    //.setInteractive()
-                    on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() => {
-                        console.log("yata")
-                    });
-                   this.setInteractive()
-                    .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() => {
-                        console.log("yata")
-                        this.bObEstats.setVisible(false)
-
-                    });
-        });
-        const bAtaque = new Button(150, 541, 'ATACAR', this, ()=>Borrar());
-
-        //this.bAtaque.visible = false;
-                
-
-        const bObjeto = new Button(150, 620, 'OBJETO', this, () =>Borrar());
-            
-        const bObEstats = new Button(350, 541, 'ESTADISTICAS', this, () =>Borrar());
-        }
-        
-        MenuPersonaje2{
-            //Boton para seguir a resultados
-      const botonPlayC = new Button(this.cameras.main.centerX, this.cameras.main.centerY + 250, 'Seguir', this, () => {
-        // Instrucción para pasar a la escena PlayCombat
-        this.scene.start("Resultados");
-        });
-
-        const bAtaque = new Button(1130, 541, 'ATACAR', this, () => {
-            // Instrucción para pasar a la escena PlayCombat
-            ;
-            });
-
-        const bObjeto = new Button(1130, 620, 'OBJETO', this, () => {
-             // Instrucción para pasar a la escena PlayCombat
-            ;
-            });
-            
-        const bObEstats = new Button(930, 541, 'ESTADISTICAS', this, () => {
-                // Instrucción para pasar a la escena PlayCombat
-               ;
-            });
-        }
-     }*/
-
-
-
-
-     //vida
-     let vidaBj1 = this.add.image(555, 572, 'vidaBack')
-     let vidaj1 = this.add.image(555, 572, 'vida')
-        
-     //Animaciones
-     const peonAnim = this.anims.create({
-        key: "peonAt",
-        frames: this.anims.generateFrameNumbers('peon', {start: 0, end: 5}),
+     //Animaciones samurais
+     const peonSA1 = this.anims.create({
+        key: "peonSA1",
+        frames: this.anims.generateFrameNumbers('peonS', {start: 0, end: 7}),
         frameRate: 10
      })
-     const peonS = this.add.sprite(750, 270, 'peon').setScale(.2)
-     //peonS.play({key: 'peonAt', repeat: -1})
+     const peonS = this.add.sprite(210, 310, 'peonS').setScale(.2)
+     
+     const reynaSA1 = this.anims.create({
+        key: "reynaSA1",
+        frames: this.anims.generateFrameNumbers('reynaS', {start: 0, end: 6}),
+        frameRate: 10
+     })
+     const reynaS = this.add.sprite(580, 290, 'reynaS').setScale(.2)
+     
+     const caballoSA1 = this.anims.create({
+        key: "caballoSA1",
+        frames: this.anims.generateFrameNumbers('caballoS', {start: 0, end: 6}),
+        frameRate: 10
+     })
+     const caballoS = this.add.sprite(310, 245, 'caballoS').setScale(.2)
+     //const peonSA1 = this.anims.create()
+     
+     
+     //Animaciones vikingos
+     const peonVA1 = this.anims.create({
+        key: "peonVA1",
+        frames: this.anims.generateFrameNumbers('peonV', {start: 0, end: 5}),
+        frameRate: 10
+     })
+     const peonV = this.add.sprite(800, 270, 'peonV').setScale(.2).setData('lifePeonV', 150);
+     console.log(peonV.getData('lifePeonV'))
 
-
-        
-
-        
-
-
+     const reynaVA1 = this.anims.create({
+        key: "reynaVA1",
+        frames: this.anims.generateFrameNumbers('reynaV', {start: 0, end: 4}),
+        frameRate: 10
+     })
+     const reynaV = this.add.sprite(650, 290, 'reynaV').setScale(.2)
     }
-
-/*Borrar(){
-    bAtaque.visible = false;
-    bObEstats.visible = false;
-    bObjeto.visible = false;
-    
-    if(bAtaque.visible === true){
-    bAtaque.visible = false;;
-    };
-};*/
-
 
     update(){
+        //this.barJ1.clear();
+
     }
+
+    //Funciones
+    
+    daño(pers){
+        pers.setTint(0xFF0000)
+        this.scheduleClearTint(pers)
+        
+        
+    }
+    scheduleClearTint(pers) {
+        pers.scene.time.addEvent({ delay: 200, callback: pers.clearTint, callbackScope: pers });
+    };
+    
 
 }

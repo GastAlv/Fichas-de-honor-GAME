@@ -10,6 +10,7 @@ import {selecViking} from "../scenes/vikingSel.js"
 import {PlayZoom} from "../scenes/PlayZoom.js"
 import {Ayuda} from "../scenes/ayuda.js"
 import {SelecFacc} from "../scenes/selecFaccion.js"
+//import {UI} from "../TS/UI.ts"
 
 
 var config = {
@@ -20,8 +21,8 @@ var config = {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
     min: {
-      width: 800,
-      height: 600,
+      width: 640,
+      height: 480,
     },
     max: {
       width: 1280,
