@@ -39,7 +39,8 @@ export class Preloads extends Phaser.Scene {
 
     //camaras
     //this.load.image("canva", "public/assets/images/canva.png")
-    this.load.image("interface", "public/assets/images/escenario_central.png");
+    this.load.image("backPuente1", "public/assets/images/escenario_central.png");
+    this.load.image("backPuente2", "public/assets/images/escenario_central_palos.png")
 
     //botones
     this.load.image("boton", "public/assets/images/bottonV.png")

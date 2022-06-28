@@ -38,7 +38,9 @@ var config = {
   },
   // Listado de todas las escenas del juego, en orden
   // La primera escena es con la cual empieza el juego
-  scene: [Preloads, MainMenu, SelecPer, Creditos, Opciones, Ayuda, SelecFacc, selecSamurai, selecViking, PlayCombat, PlayZoom, Resultados]
+  scene: [Preloads, MainMenu, SelecPer, Creditos, Opciones, Ayuda, SelecFacc, selecSamurai, selecViking, PlayCombat, PlayZoom, Resultados],
+  render:{
+    pixelart: true
+  }
 };
-
 var game = new Phaser.Game(config);
