@@ -50,6 +50,9 @@ export class Preloads extends Phaser.Scene {
     this.load.image("botonV", "public/assets/images/interfaz.png");
 
 
+    this.load.image('B', "public/assets/images/bBack.png");
+
+
     //amnimaciones samurais
     this.load.spritesheet('peonS', "public/assets/images/peonS.png", {
       frameWidth: 1280,
@@ -93,12 +96,19 @@ export class Preloads extends Phaser.Scene {
     // barra de vida
     this.load.image("barraVida", "public/assets/images/vida.png")
     this.load.image("barraVBack", "public/assets/images/vidaBack.png")
+
+
+
     
+    //Victorias
+    this.load.image("victoriaV", "public/assets/images/victoriaV.png")
+    this.load.image("victoriaS", "public/assets/images/victoriaS.png")
+
 
   }
 
   create() {
     // Pasa directamente a la escena del menú principal
-    this.scene.start("SelecPer");
+    this.scene.start("Precarga");
   }
 }

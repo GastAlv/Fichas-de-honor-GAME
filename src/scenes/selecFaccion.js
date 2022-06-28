@@ -42,13 +42,13 @@ export class SelecFacc extends Phaser.Scene {
         .setStyle({
             fontFamily: "asian",
             fontSize: '56px',
-            fill: '#7D8E69'
+            fill: '#FFFFFF'
         })
         .setInteractive()
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() => {
           this.listo1 = true;
         })
-        .on('pointerover', () => listoJ01.setTint(0x728C55))
+        .on('pointerover', () => listoJ01.setTint(0x000000))
         .on('pointerout', () => listoJ01.setTint(0xDBE5D0))
         let listo1 = false;
 
@@ -64,13 +64,13 @@ export class SelecFacc extends Phaser.Scene {
         .setStyle({
             fontFamily: "asian",
             fontSize: '56px',
-            fill: '#7D8E69'
+            fill: '#FFFFFF'
         })
         .setInteractive()
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,() => {
           this.listo2 = true;
         })
-        .on('pointerover', () => listoJ02.setTint(0x728C55))
+        .on('pointerover', () => listoJ02.setTint(0x000000))
         .on('pointerout', () => listoJ02.setTint(0xDBE5D0))
         let listo2 = false;
 

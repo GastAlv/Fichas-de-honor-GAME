@@ -3,8 +3,7 @@ import Button from "../js/button.js";
 var grupoS =  [];
 var grupoV = [];
 var start;
-var eleccS01;
-var eleccV01;
+
 var score = 8700;
 export class SelecPer extends Phaser.Scene {
     constructor() {
@@ -38,6 +37,9 @@ export class SelecPer extends Phaser.Scene {
    cam2.ignore([ image1])
    const peon = this.add.image(500, 300, 'zoomPerS01')*/
 
+
+    var eleccS01;
+    var eleccV01;
    //lista de seleccion samurais
    let perS01 = this.add.image(549, 542, 'peonSelecS')
    .setInteractive()
@@ -47,10 +49,11 @@ export class SelecPer extends Phaser.Scene {
           perS03.visible = false;
           this.listoJS = true;
           //grupoS.push('true')
-          this.eleccS01 = 'peonS';
+          eleccS01 = 'peonS';
+          console.log(eleccS01)
           
           //console.log(grupoS)
-        }).setData('peonS', true)
+        })//.setData('peonS', true)
     //.on('pointerover', () => perS01.setTint(0x7353EC))
     //.on('pointerout', () => perS01.setTint(0xFFFFFF));
     //var listoJS1 = false;
@@ -65,7 +68,8 @@ export class SelecPer extends Phaser.Scene {
           //grupoS.push('true')
           this.listoJS = true;
 
-          this.eleccS01 = 'caballoS';
+          eleccS01 = 'caballoS';
+          console.log(eleccS01)
         })
     //.on('pointerover', () => perS02.setTint(0x7353EC))
     //.on('pointerout', () => perS02.setTint(0xFFFFFF));
@@ -81,7 +85,8 @@ export class SelecPer extends Phaser.Scene {
           //grupoS.push('true')
           this.listoJS = true;
 
-          this.eleccS01 = 'reynaS';
+          eleccS01 = 'reynaS'
+          console.log(eleccS01)
         })
     //.on('pointerover', () => perS03.setTint(0x7353EC))
     //.on('pointerout', () => perS03.setTint(0xFFFFFF));
@@ -105,9 +110,10 @@ export class SelecPer extends Phaser.Scene {
           //grupoV.push('true')
 
           //this.eleccV01.setData('peonV')
-          this.eleccV01 = 'peonV';
+          eleccV01 = 'peonV';
+          console.log(eleccV01)
 
-        }).setData('peonV', true)
+        })//.setData('peonV', true)
     //.on('pointerover', () => perV01.setTint(0x7353EC))
     //.on('pointerout', () => perV01.setTint(0xFFFFFF));
     //var listoJV4 = false;
@@ -122,7 +128,8 @@ export class SelecPer extends Phaser.Scene {
           this.listoJV = true;
           //grupoV.push('true')
 
-          this.eleccV01 = this.setData('caballoV')
+          eleccV01 = 'caballoV';
+          console.log(eleccV01)
 
         })
     //.on('pointerover', () => perV02.setTint(0x7353EC))
@@ -141,21 +148,50 @@ export class SelecPer extends Phaser.Scene {
           //grupoV.push('true')//.setData('reyna', true)
 
 
-          this.eleccV01 = this.setData('reynaV')
+          eleccV01 = "reynaV";
+          console.log(eleccV01)
         })
     //.on('pointerover', () => perV03.setTint(0x7353EC))
     //.on('pointerout', () => perV03.setTint(0xFFFFFF));
     //var listoJV6 = false;
     // ----------------------------//
     
-    console.log(perS01.getData('peonS'))
-    console.log(perV01.getData('peonV'))
+    //peonS y v las comente
+    //console.log(perS01.getData('peonS'))
+    //console.log(perV01.getData('peonV'))
+    //console.log(eleccS01)
+    //console.log(eleccV01)
+    
+    perS01.setDataEnabled()
+    perS01.data.set('name', 'peonS');
+    perS01.data.set('vida', 150)
+    perS01.data.set('daño', 10)
+    perS01.data.set('name', 'peonS');
+    //console.log(perS01.data.getAll());
+    
+    this.registry.events.on('combate1', () => {
+      console.log(perS01.data.getAll())
+
+    });
+
+    this.registry.events.emit('combate1')
+
+
+    /*var auto;
+    auto.setDataEnabled()
+    auto.data.set('vida', 100)
+    auto.data.set('color', "red")
+    auto.data.set('daño', 20)
+
+    console.log(this.auto.getAll())*/
 
 
   }
   
 
   update(){
+    //console.log(eleccS01)
+    //console.log(eleccV01)
     /*console.log(nose.getData('nose'))
 
     if (nose.getData('nose') === true){
@@ -185,9 +221,9 @@ export class SelecPer extends Phaser.Scene {
 
     if (this.listoJS && this.listoJV === true){
         //console.log(this.listoJS1)
-        console.log(eleccS01)
-        console.log(eleccV01)
-        //this.scene.start("PlayZoom", { score: score })
+        //console.log(eleccS01)
+        //console.log(eleccV01)
+        this.scene.start("PlayZoom")
         
         //console.log(perS01.getData('peonS'))
         //console.log(perV01.getData('peonV'))
